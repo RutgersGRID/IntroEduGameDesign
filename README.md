@@ -1,5 +1,7 @@
 # Project Proposal: Visual Novel Faculty Resource Guide
 
+[[Draft Website]](https://rutgersgrid.github.io/IntroVN-EduGameDesign/)
+
 ## Executive Overview
 
 This proposal outlines the development of a comprehensive **Visual Novel (VN) Resource Guide**, a strategic asset designed to empower faculty to integrate game-based learning into their curricula. As an institution committed to innovative pedagogy, providing accessible pathways for educators to adopt new technologies is paramount. Visual novels represent a uniquely powerful and low-barrier entry point into educational game development, and this guide will serve as a cornerstone for our efforts in this domain.
