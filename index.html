@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up: Games in Education Faculty Resource</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-color: #F3F4F6; /* A light, neutral gray */
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Site Title -->
+            <div class="text-2xl font-bold text-blue-600">
+                <a href="#">Level Up: EduGaming</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+            <!-- Navigation Links -->
+            <div id="menu" class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300 font-medium">Home</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Game Showcase</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Intro to Game Design</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Resources/Tools</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Industry Profiles</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Initiatives</a>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Game Showcase</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Intro to Game Design</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Resources/Tools</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Industry Profiles</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Initiatives</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg">
+            <div class="container mx-auto px-6 py-20 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-4">Transform Your Classroom with Game-Based Learning</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    A dedicated resource for faculty to explore, design, and implement engaging educational games and interactive experiences.
+                </p>
+                <a href="#" class="mt-8 inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">Explore the Showcase</a>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900">Why Games in Education?</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Harness the power of play to boost student engagement, facilitate complex problem-solving, and create memorable learning outcomes.</p>
+                </div>
+                
+                <!-- Feature Cards -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1: Motivation -->
+                    <div class="bg-white p-8 rounded-lg border border-gray-200">
+                        <div class="text-blue-500 mb-4">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Boost Motivation</h3>
+                        <p class="text-gray-600">Games tap into intrinsic motivators like curiosity, challenge, and achievement, making learning a compelling and enjoyable process.</p>
+                    </div>
+                    <!-- Card 2: Skill Development -->
+                    <div class="bg-white p-8 rounded-lg border border-gray-200">
+                        <div class="text-blue-500 mb-4">
+                           <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Develop Critical Skills</h3>
+                        <p class="text-gray-600">From strategic thinking to collaboration, educational games provide a safe space for students to practice and master essential 21st-century skills.</p>
+                    </div>
+                    <!-- Card 3: Active Learning -->
+                    <div class="bg-white p-8 rounded-lg border border-gray-200">
+                        <div class="text-blue-500 mb-4">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Foster Active Learning</h3>
+                        <p class="text-gray-600">Move beyond passive lectures. Games require active participation, putting students in control of their own learning journey and discovery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="bg-blue-600 text-white">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+                <p class="text-blue-100 max-w-2xl mx-auto mb-8">
+                    Dive into our curated guides and resources. Whether you want to use existing games or create your own, we have the tools to help you succeed.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#" class="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300">Learn Game Design Basics</a>
+                    <a href="#" class="border-2 border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-blue-600 transition duration-300">Browse Tools & Resources</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 Level Up: EduGaming. A resource for innovative educators.</p>
+            <p class="text-gray-400 text-sm mt-2">Dedicated to advancing the role of interactive learning in higher education.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
