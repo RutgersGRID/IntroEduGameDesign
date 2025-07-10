@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Showcase - Level Up: EduGaming</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the active filter button */
+        .filter-btn.active {
+            background-color: #2563EB; /* blue-600 */
+            color: white;
+            border-color: #2563EB;
+        }
+        .game-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .game-card-content {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Site Title -->
+            <div class="text-2xl font-bold text-blue-600">
+                <a href="#">Level Up: EduGaming</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+            <!-- Navigation Links -->
+            <div id="menu" class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
+                <a href="#" class="text-blue-600 font-bold hover:text-blue-600 transition duration-300">Game Showcase</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Intro to Game Design</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Resources/Tools</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Industry Profiles</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Initiatives</a>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
+            <a href="#" class="block py-2 text-blue-600 font-bold">Game Showcase</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Intro to Game Design</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Resources/Tools</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Industry Profiles</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Initiatives</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- Page Title -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Game Showcase</h1>
+            <p class="text-lg text-gray-600 mt-2 max-w-3xl mx-auto">Explore a curated collection of educational games and interactive experiences in STEM, Humanities, and beyond.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div id="filter-container" class="flex flex-wrap justify-center gap-2 md:gap-3 mb-12">
+            <button class="filter-btn active py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="all">All</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="stem">STEM</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="humanities">Humanities</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="simulation">Simulations</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="visual-novel">Visual Novels</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="reality-capture">Reality Capture</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="health">Health</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="environment">Environment</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="psychology">Psychology</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="ai">Robotics & AI</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="lgbtq">LGBTQ+</button>
+            <button class="filter-btn py-2 px-4 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 transition" data-filter="cultural">Cultural</button>
+        </div>
+
+        <!-- Games Grid -->
+        <div id="games-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Eliza (Updated) -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="humanities ai visual-novel psychology">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/eliza.jpg" alt="Eliza Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d946ef/ffffff?text=Eliza';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Eliza</h3>
+                    <p class="text-gray-600 mb-4">A narrative game about an AI counseling app. Players explore themes of automation, empathy, and the ethics of AI in therapeutic settings.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">AI Ethics</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Mental Health</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.youtube.com/watch?v=n53Z8LMg2wo" target="_blank" class="font-semibold text-blue-600 hover:underline">Watch Trailer &rarr;</a></div>
+            </div>
+
+            <!-- Neo Cab (Updated) -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="humanities ai visual-novel simulation">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/neocab.jpg" alt="Neo Cab" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ec4899/ffffff?text=Neo+Cab';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Neo Cab</h3>
+                    <p class="text-gray-600 mb-4">A survival adventure about the last human driver in a city transformed by automation, exploring technological displacement and the gig economy.</p>
+                     <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Gig Economy</span>
+                         <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Automation</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.youtube.com/watch?v=Fw8sDXEW854" target="_blank" class="font-semibold text-blue-600 hover:underline">Watch Trailer &rarr;</a></div>
+            </div>
+
+            <!-- Dream Daddy -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="visual-novel lgbtq simulation">
+                <img src="https://placehold.co/600x400/f472b6/ffffff?text=Dream+Daddy" alt="Dream Daddy Game" class="w-full h-48 object-cover">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Dream Daddy</h3>
+                    <p class="text-gray-600 mb-4">A dad dating simulator that follows a single father navigating parenting, romance, and community building in an inclusive, LGBTQ+-affirming environment.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">LGBTQ+</span>
+                        <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Parenting</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.youtube.com/watch?v=7jlQbAKsLJc" target="_blank" class="font-semibold text-blue-600 hover:underline">Watch Trailer &rarr;</a></div>
+            </div>
+
+            <!-- Depression Quest -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="visual-novel psychology health">
+                <img src="https://placehold.co/600x400/6b7280/ffffff?text=Depression+Quest" alt="Depression Quest Game" class="w-full h-48 object-cover">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Depression Quest</h3>
+                    <p class="text-gray-600 mb-4">An interactive fiction experience illustrating the reality of living with mental illness, the challenges of relationships, and the complexities of seeking treatment.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Mental Health</span>
+                        <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Health</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://the-quinnspiracy.itch.io/depressionquest" target="_blank" class="font-semibold text-blue-600 hover:underline">Play Game &rarr;</a></div>
+            </div>
+
+            <!-- Chinese Funeral -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="visual-novel cultural humanities">
+                <img src="https://placehold.co/600x400/ef4444/ffffff?text=Chinese+Funeral" alt="Chinese Funeral Game" class="w-full h-48 object-cover">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Chinese Funeral</h3>
+                    <p class="text-gray-600 mb-4">A personal narrative game sharing traditional Chinese funeral practices from the perspective of a Chinese American discovering their cultural heritage.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Cultural</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Heritage</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://scratch.mit.edu/projects/96060359/" target="_blank" class="font-semibold text-blue-600 hover:underline">Play Game &rarr;</a></div>
+            </div>
+
+            <!-- Bury Me, My Love -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="visual-novel cultural humanities">
+                <img src="https://placehold.co/600x400/a16207/ffffff?text=Bury+Me,+My+Love" alt="Bury Me, My Love Game" class="w-full h-48 object-cover">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Bury Me, My Love</h3>
+                    <p class="text-gray-600 mb-4">Follow a Syrian woman's journey to safety in Europe through text messages with her husband. Based on real testimonies of refugees.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Refugee Experience</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.youtube.com/watch?v=zl9GyQuUltA" target="_blank" class="font-semibold text-blue-600 hover:underline">Watch Trailer &rarr;</a></div>
+            </div>
+
+            <!-- Monster Prom -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="visual-novel lgbtq simulation">
+                <img src="https://placehold.co/600x400/be185d/ffffff?text=Monster+Prom" alt="Monster Prom Game" class="w-full h-48 object-cover">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Monster Prom</h3>
+                    <p class="text-gray-600 mb-4">A multiplayer dating sim in a high school for monsters, celebrating inclusivity, body positivity, and acceptance through humor and heart.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">LGBTQ+</span>
+                        <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Inclusivity</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.youtube.com/watch?v=pkkU-4uwf9c" target="_blank" class="font-semibold text-blue-600 hover:underline">Watch Trailer &rarr;</a></div>
+            </div>
+
+            <!-- One Night Stand -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="visual-novel humanities">
+                <img src="https://placehold.co/600x400/4f46e5/ffffff?text=One+Night+Stand" alt="One Night Stand Game" class="w-full h-48 object-cover">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">One Night Stand</h3>
+                    <p class="text-gray-600 mb-4">A mature visual novel exploring the morning after a one-night encounter, focusing on communication, respect, and complex emotions.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Relationships</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.youtube.com/watch?v=GRsIPaaAefc" target="_blank" class="font-semibold text-blue-600 hover:underline">Watch Trailer &rarr;</a></div>
+            </div>
+
+            <!-- The Innsmouth Case -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="visual-novel humanities">
+                <img src="https://placehold.co/600x400/0d9488/ffffff?text=The+Innsmouth+Case" alt="The Innsmouth Case Game" class="w-full h-48 object-cover">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">The Innsmouth Case</h3>
+                    <p class="text-gray-600 mb-4">A detective adventure combining Lovecraftian horror with comedy, exploring themes of otherness, prejudice, and being an outsider.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Horror</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Humanities</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.youtube.com/watch?v=YTnfYztWj_s" target="_blank" class="font-semibold text-blue-600 hover:underline">Watch Trailer &rarr;</a></div>
+            </div>
+
+            <!-- We, The Refugees -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="visual-novel cultural humanities">
+                <img src="https://placehold.co/600x400/fb923c/ffffff?text=We,+The+Refugees" alt="We, The Refugees Game" class="w-full h-48 object-cover">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">We, The Refugees</h3>
+                    <p class="text-gray-600 mb-4">An educational narrative game putting players in the shoes of refugees from different conflicts, learning about global displacement issues.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Humanitarian</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.youtube.com/watch?v=yimgh6cMEfU" target="_blank" class="font-semibold text-blue-600 hover:underline">Watch Trailer &rarr;</a></div>
+            </div>
+
+            <!-- Adventures with Anxiety -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="visual-novel psychology health">
+                <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Adventures+with+Anxiety" alt="Adventures with Anxiety Game" class="w-full h-48 object-cover">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Adventures with Anxiety</h3>
+                    <p class="text-gray-600 mb-4">An interactive story that personifies anxiety, helping players understand how it works and learn coping strategies through narrative and mini-games.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Visual Novel</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Mental Health</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://ncase.itch.io/anxiety" target="_blank" class="font-semibold text-blue-600 hover:underline">Play Game &rarr;</a></div>
+            </div>
+
+            <!-- Crab God -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem health environment simulation">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/crabgod.webp" alt="Crab God Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3498db/ffffff?text=Crab+God';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Crab God</h3>
+                    <p class="text-gray-600 mb-4">An underwater strategy game where you must protect the egg of the next Crab God. Build and defend a coral reef, manage resources, and learn about marine conservation.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Health</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Environment</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://firesquid.games/games/crab-god" target="_blank" class="font-semibold text-blue-600 hover:underline">Visit Website &rarr;</a></div>
+            </div>
+
+            <!-- Empiric Pediatrics -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem health">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/empiric.webp" alt="Empiric Pediatrics Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e74c3c/ffffff?text=Empiric';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Empiric Pediatrics</h3>
+                    <p class="text-gray-600 mb-4">A card game designed to teach medical students and residents about guideline-based antibiotic use in pediatric care.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Health</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.mededportal.org/doi/10.15766/mep_2374-8265.11533" target="_blank" class="font-semibold text-blue-600 hover:underline">Learn More &rarr;</a></div>
+            </div>
+
+            <!-- Minecraft National Parks -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem environment">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/minecraft.jpg" alt="Minecraft National Parks" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2ecc71/ffffff?text=Minecraft';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Minecraft National Parks</h3>
+                    <p class="text-gray-600 mb-4">Explore and learn about America's beautiful national parks through custom-built Minecraft worlds. A creative way to engage with ecology and environmental science.</p>
+                     <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Environment</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.minecraft.net/en-us/article/minecraft-national-park" target="_blank" class="font-semibold text-blue-600 hover:underline">Visit Website &rarr;</a></div>
+            </div>
+
+            <!-- Creatures of AVA -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem environment">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/ava.jpg" alt="Creatures of AVA" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/84cc16/ffffff?text=Creatures+of+AVA';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Creatures of AVA</h3>
+                    <p class="text-gray-600 mb-4">A unique creature-saving game where you must understand, tame, and heal creatures from an infection, promoting empathy and ecological awareness.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Environment</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://store.steampowered.com/app/2304440/Creatures_of_Ava/" target="_blank" class="font-semibold text-blue-600 hover:underline">Visit Website &rarr;</a></div>
+            </div>
+
+            <!-- Bloom -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem environment simulation">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/Bloom-FB.jpg" alt="Bloom: The Saga of the Fertilizer Economy" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/16a34a/ffffff?text=Bloom';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Bloom: Fertilizer Economy</h3>
+                    <p class="text-gray-600 mb-4">This game explores the economic and environmental impacts of fertilizer, challenging players to find a sustainable balance in modern agriculture.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Environment</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://fielddaylab.wisc.edu/play/bloom/" target="_blank" class="font-semibold text-blue-600 hover:underline">Play for Free &rarr;</a></div>
+            </div>
+
+            <!-- ARbor Trail -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem environment reality-capture">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/arbor.jpg" alt="ARbor Trail Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/4d7c0f/ffffff?text=ARbor+Trail';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">ARbor Trail (AR)</h3>
+                    <p class="text-gray-600 mb-4">Explore a trail and restore pages of a naturalist's lost journal using Augmented Reality. A collaboration with Rutgers SEBS, University Inn, and UOES.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Reality Capture</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Environment</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.youtube.com/watch?v=Qkx_fmcilHQ" target="_blank" class="font-semibold text-blue-600 hover:underline">Watch Trailer &rarr;</a></div>
+            </div>
+
+            <!-- Wake: Tales from the Aqualab -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/wake.jpg" alt="Wake: Tales from the Aqualab" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3b82f6/ffffff?text=Wake';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Wake: Tales from the Aqualab</h3>
+                    <p class="text-gray-600 mb-4">A physics-based puzzle game where you manipulate water in its different states (solid, liquid, gas) to solve challenges and learn about scientific principles.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Physics</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://fielddaylab.wisc.edu/play/wake/" target="_blank" class="font-semibold text-blue-600 hover:underline">Play for Free &rarr;</a></div>
+            </div>
+
+            <!-- Killer Snails -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem health">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/snails.webp" alt="Killer Snails Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6366f1/ffffff?text=Killer+Snails';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Killer Snails</h3>
+                    <p class="text-gray-600 mb-4">This card game, supported by digital tools, dives into the amazing world of venomous marine snails, teaching concepts of biology, ecology, and medicine.</p>
+                     <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Health</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://killersnails.com/" target="_blank" class="font-semibold text-blue-600 hover:underline">Visit Website &rarr;</a></div>
+            </div>
+
+            <!-- Star Stuff -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/starstuff.jpg" alt="Star Stuff Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a855f7/ffffff?text=Star+Stuff';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Star Stuff</h3>
+                    <p class="text-gray-600 mb-4">A cosmic puzzle game about a young alien scientist. Program bots to help you tackle challenges, experiment with mechanics, and explore the wonders of astrophysics.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                         <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Astrophysics</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.starstuffgame.com/" target="_blank" class="font-semibold text-blue-600 hover:underline">Visit Website &rarr;</a></div>
+            </div>
+
+            <!-- Tablecraft -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/tablecraft.png" alt="Tablecraft Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0891b2/ffffff?text=Tablecraft';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Tablecraft</h3>
+                    <p class="text-gray-600 mb-4">An interactive game that brings the periodic table to life. Combine elements to discover compounds and reactions in a fun, block-based world.</p>
+                     <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-cyan-100 text-cyan-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Chemistry</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.notsuspicious.biz/" target="_blank" class="font-semibold text-blue-600 hover:underline">Visit Website &rarr;</a></div>
+            </div>
+
+            <!-- Verizon Learning Lab -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem reality-capture">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/verizon.png" alt="Verizon Learning Lab" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ef4444/ffffff?text=Verizon+Lab';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Verizon Learning Lab (AR)</h3>
+                    <p class="text-gray-600 mb-4">An augmented reality app that brings learning to life. Explore everything from the human body to space exploration right in your own room.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Reality Capture</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.verizon.com/learning/ar-vr-apps/Verizon-Innovative-Learning-Lab/28" target="_blank" class="font-semibold text-blue-600 hover:underline">Learn More &rarr;</a></div>
+            </div>
+
+            <!-- Greener House (Roblox) -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem environment simulation">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/greenerhouse.jpg" alt="Greener House (Roblox)" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/10b981/ffffff?text=Greener+House';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Greener House (Roblox)</h3>
+                    <p class="text-gray-600 mb-4">Learn about sustainable living and green engineering by designing and maintaining an eco-friendly house within the popular Roblox platform.</p>
+                     <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Environment</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://www.roblox.com/games/14952020677/Greener-House-Beta" target="_blank" class="font-semibold text-blue-600 hover:underline">Play on Roblox &rarr;</a></div>
+            </div>
+
+            <!-- Nuclear Negotiator -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="humanities simulation">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/nuclear.jpg" alt="Nuclear Negotiator" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f59e0b/ffffff?text=Nuclear+Negotiator';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Nuclear Negotiator</h3>
+                    <p class="text-gray-600 mb-4">A serious game that puts you in the shoes of a diplomat. Navigate complex geopolitical situations and learn about nuclear policy and international relations.</p>
+                     <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Humanities</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Simulation</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://nuclear-negotiator.co.uk/" target="_blank" class="font-semibold text-blue-600 hover:underline">Play for Free &rarr;</a></div>
+            </div>
+
+            <!-- Challenges of High School -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="humanities psychology visual-novel">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/challenges.png" alt="Challenges of High School Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=High+School';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Challenges of High School</h3>
+                    <p class="text-gray-600 mb-4">Follow Alex and Lia, two autistic teens, as you help them navigate the challenges of adolescence and high school in this empathetic narrative experience.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Humanities</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Psychology</span>
+                    </div>
+                </div>
+                 <div class="p-6 pt-0"><p class="text-sm text-gray-500">A Rutgers Collaboration</p></div>
+            </div>
+
+            <!-- Is there something wrong with my child -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="humanities psychology visual-novel">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/somethingwrong.png" alt="Is there something wrong with my child Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/7c3aed/ffffff?text=Support';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">A Question of Support</h3>
+                    <p class="text-gray-600 mb-4">Explore scenarios that help shift from a deficit model to one of full potential, learning how to create better support for individuals with autism and their families.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Humanities</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Psychology</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><p class="text-sm text-gray-500">A Rutgers Collaboration</p></div>
+            </div>
+
+            <!-- Impulse: Playing with Reality -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem psychology reality-capture">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/impulse.webp" alt="Impulse Playing with Reality Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6d28d9/ffffff?text=Impulse+VR';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Impulse: Playing with Reality (VR)</h3>
+                    <p class="text-gray-600 mb-4">A VR experience that delves into the human mind, exploring impulse control and decision-making through engaging, interactive scenarios.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Reality Capture</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Psychology</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><a href="https://impulse-xr.io/" target="_blank" class="font-semibold text-blue-600 hover:underline">Visit Website &rarr;</a></div>
+            </div>
+
+            <!-- Gill's Diner -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem health">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/gill.png" alt="Gill's Diner Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/eab308/ffffff?text=Gill%27s+Diner';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Gill's Diner</h3>
+                    <p class="text-gray-600 mb-4">A game where you help Gill create plates based off the My Plate food groups. A collaboration with 'NJ Leaves No Bite Behind'.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Health</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><p class="text-sm text-gray-500">A Rutgers Collaboration</p></div>
+            </div>
+
+            <!-- Parts of a Plant -->
+            <div class="game-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="stem environment">
+                <img src="https://raw.githubusercontent.com/RutgersGRID/4H-STEM-Games/main/assets/plants.png" alt="Parts of a Plant Game" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ca8a04/ffffff?text=Plant+Parts';">
+                <div class="p-6 game-card-content">
+                    <h3 class="text-xl font-bold mb-2">Parts of a Plant</h3>
+                    <p class="text-gray-600 mb-4">A game for kindergartners to help them identify parts of plants and where food comes from. A collaboration with 'NJ Leaves No Bite Behind'.</p>
+                     <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">STEM</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Environment</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-0"><p class="text-sm text-gray-500">A Rutgers Collaboration</p></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 Level Up: EduGaming. A resource for innovative educators.</p>
+            <p class="text-gray-400 text-sm mt-2">Dedicated to advancing the role of interactive learning in higher education.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Filtering -->
+    <script>
+        // --- Mobile Menu Logic ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Filtering Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterContainer = document.getElementById('filter-container');
+            const gameCards = document.querySelectorAll('.game-card');
+            
+            // Handle clicks on filter buttons
+            filterContainer.addEventListener('click', (event) => {
+                // Ensure a button was clicked
+                if (event.target.tagName !== 'BUTTON') {
+                    return;
+                }
+
+                const filterValue = event.target.getAttribute('data-filter');
+
+                // Update active state on buttons
+                const filterButtons = filterContainer.querySelectorAll('.filter-btn');
+                filterButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+                event.target.classList.add('active');
+
+                // Show/hide game cards based on filter
+                gameCards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category');
+                    if (filterValue === 'all' || (cardCategories && cardCategories.includes(filterValue))) {
+                        card.style.display = 'flex'; // Use flex to maintain layout
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
