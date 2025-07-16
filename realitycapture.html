@@ -72,4 +72,153 @@
                 </button>
             </div>
             <div id="menu" class="hidden md:flex items-center space-x-6">
-                <a href="#" class="text-gray-600 hover:text-blue-600
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Game Showcase</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Intro to Game Design</a>
+                <a href="#" class="text-blue-600 font-bold hover:text-blue-600 transition duration-300">Resources/Tools</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Industry Profiles</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Initiatives</a>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+             <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Game Showcase</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Intro to Game Design</a>
+            <a href="#" class="block py-2 text-blue-600 font-bold">Resources/Tools</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Industry Profiles</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Initiatives</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-4xl">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">A Faculty Guide to Reality Capture</h1>
+            <p class="text-lg text-gray-600 mt-2">From Physical to Digital: Bringing Real-World Objects and Environments into Your Teaching</p>
+        </div>
+
+        <article>
+            <section id="what-is">
+                <h2>What is Reality Capture?</h2>
+                <p>Reality capture is the process of creating a 3D digital model of a real-world object, space, or environment. Using various techniques like photography and laser scanning, we can translate physical items into detailed digital assets. These assets can then be explored, manipulated, and integrated into virtual experiences, offering unprecedented opportunities for teaching, research, and documentation.</p>
+                <div class="grid md:grid-cols-2 gap-8 my-8">
+                    <img src="https://placehold.co/600x400/3B82F6/ffffff?text=Physical+Object" alt="A physical statue" class="rounded-lg shadow-md">
+                    <img src="https://placehold.co/600x400/10B981/ffffff?text=Digital+3D+Model" alt="A 3D model of the statue" class="rounded-lg shadow-md">
+                </div>
+                <p>For educators, this means you can bring a fragile historical artifact into a virtual classroom for students to examine from all angles, allow architecture students to walk through a digital twin of a famous building, or let medical students explore a 3D model of an organ. The possibilities are vast and transformative.</p>
+            </section>
+
+            <section id="gaussian-splatting">
+                <h2>Intro to Gaussian Splatting</h2>
+                <p>Gaussian Splatting is a cutting-edge technique for rendering 3D scenes. Unlike traditional methods that use polygons and meshes, Gaussian Splatting represents a scene as a collection of "splats" (3D Gaussians). Each splat has properties like position, color, transparency, and orientation.</p>
+                <p>This approach allows for incredibly fast, high-fidelity rendering of complex scenes in real-time. It excels at capturing fine details, reflections, and transparency, making it ideal for creating photorealistic digital environments that can be explored smoothly on a wide range of devices.</p>
+            </section>
+
+            <section id="splat-showcase">
+                <h2>Interactive 3D Gaussian Splats Showcase</h2>
+                <p>Explore our collection of 3D scenes captured using Gaussian Splatting. You can interact with each model by clicking and dragging to rotate the view. These examples demonstrate the quality and interactivity achievable with this technology.</p>
+
+                <h3>Spaces &amp; Objects</h3>
+                <div class="grid md:grid-cols-3 gap-6 my-8 text-center">
+                    <div>
+                        <h4>Climbing Gym</h4>
+                        <iframe src="https://lumalabs.ai/embed/03b9e6fb-b91d-4ec7-857c-f4ce821e4adf?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" width="100%" height="400" frameborder="0" title="luma embed" style="border: none; border-radius: 0.5rem;" class="shadow-md rounded-lg"></iframe>
+                    </div>
+                    <div>
+                        <h4>Newark Penn Station</h4>
+                        <iframe src="https://lumalabs.ai/embed/00349dea-574e-47b0-ad72-9f44670b7c2d?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" width="100%" height="400" frameborder="0" title="luma embed" style="border: none; border-radius: 0.5rem;" class="shadow-md rounded-lg"></iframe>
+                    </div>
+                    <div>
+                        <h4>Tree</h4>
+                        <iframe src="https://lumalabs.ai/embed/34681dfb-3dc3-49a5-9a69-65af765ed535?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" width="100%" height="400" frameborder="0" title="luma embed" style="border: none; border-radius: 0.5rem;" class="shadow-md rounded-lg"></iframe>
+                    </div>
+                </div>
+
+                <h3>Landscapes</h3>
+                <h4 class="text-center">Climbing Mountain</h4>
+                <iframe src="https://lumalabs.ai/embed/85bbda7f-35dd-47c0-a8ed-5b1aa157bf14?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" width="100%" height="500" frameborder="0" title="luma embed" style="border: none; border-radius: 0.5rem;" class="shadow-md rounded-lg mx-auto block"></iframe>
+
+                <h3>Custom Animation Paths</h3>
+                <p>Beyond interactive viewing, we can render videos with custom camera paths to showcase specific features of a model. This video demonstrates a custom flight path around the climbing wall capture, perfect for presentations or instructional videos.</p>
+                <ul>
+                   <li><a href="https://github.com/RutgersGRID/IntroEduGameDesign/blob/main/Tower_Wall_video.mp4" target="_blank">Link to Climbing Wall Animation Video</a></li>
+                </ul>
+            </section>
+
+            <section id="photogrammetry">
+                <h2>Intro to Photogrammetry</h2>
+                <p>Photogrammetry is the science and art of making measurements from photographs. In the context of reality capture, it involves taking numerous overlapping photos of an object or scene from different angles. Specialized software then analyzes these photos to calculate the position of points in 3D space, creating a point cloud that is then converted into a 3D mesh with textures.</p>
+                <p>It's a highly accessible method, often requiring just a smartphone camera to get started, yet it can produce incredibly detailed and accurate models. It is the foundation for many reality capture workflows.</p>
+            </section>
+
+            <section id="capture-methods">
+                <h2>Capture Methods & Best Practices</h2>
+                <p>The quality of your digital model is directly dependent on the quality of your source images or video. Here are some best practices:</p>
+                <h3>Best Practices for All Captures</h3>
+                <ul>
+                    <li><strong>Consistent Lighting:</strong> Shoot in soft, diffuse light. An overcast day is perfect for outdoor captures. Avoid harsh shadows and direct sunlight, as these get "baked" into the model's texture.</li>
+                    <li><strong>High Overlap:</strong> Ensure each photo has at least 60-70% overlap with the photos around it. The software needs to see the same features from multiple viewpoints.</li>
+                    <li><strong>Keep the Subject in Focus:</strong> Blurry images are the enemy of good photogrammetry. Ensure your subject is sharp in every shot.</li>
+                    <li><strong>Avoid Reflective or Transparent Surfaces:</strong> Shiny or clear objects are notoriously difficult to capture as the reflections change from different angles. You can use a temporary dulling spray for such surfaces.</li>
+                </ul>
+                 <div class="pro-tip">
+                    <p><strong>Pro Tip:</strong> For small objects, consider using a turntable (even a simple lazy Susan). Keep the camera stationary on a tripod and rotate the object. This ensures consistent lighting and distance.</p>
+                </div>
+            </section>
+
+            <section id="processing">
+                <h2>Processing Methods</h2>
+                <p>Once you've captured your images, you need software to process them into a 3D model. Here are a few popular and accessible options:</p>
+                <ul>
+                    <li><strong>Luma AI:</strong> A powerful, user-friendly platform (available on web and mobile) that specializes in creating high-quality 3D captures from video. It's particularly good for Gaussian Splatting and produces stunning, explorable scenes.</li>
+                    <li><strong>Polycam:</strong> An all-in-one mobile app that makes reality capture incredibly easy. It offers photo, video, and even LiDAR capture modes (on compatible iPhones/iPads). It's great for quick scans and sharing.</li>
+                    <li><strong>Postshot:</strong> Another excellent mobile app focused on ease of use, allowing you to capture scenes with your phone's video camera and process them into 3D models and Gaussian Splats.</li>
+                </ul>
+            </section>
+            
+            <section id="editing">
+                <h2>Editing Methods</h2>
+                <p>Your initial 3D model may not be perfect. You might need to clean up stray geometry, crop the scene, or adjust the textures. While many processing apps have basic editing tools, more advanced work can be done in dedicated 3D software like <a href="https://www.blender.org/" target="_blank">Blender</a> (which is free and open-source) or commercial tools like ZBrush.</p>
+            </section>
+
+            <section id="use-cases">
+                <h2>Use Cases in Education & Research</h2>
+                <p>Reality capture is not just for video games and visual effects. It has profound applications in academia:</p>
+                <ul>
+                    <li><strong>In Games & Interactive Media:</strong> Create realistic assets and environments for educational games, simulations, and narrative experiences.</li>
+                    <li><strong>Sharing Places (Virtual Field Trips):</strong> Digitize a location—be it a historical site, a unique geological formation, or a complex laboratory—and allow students to visit it virtually from anywhere in the world.</li>
+                    <li><strong>Virtual & Augmented Reality (VR/AR):</strong> Place digital replicas of real-world objects into virtual spaces for hands-on training or overlay digital information onto the real world with AR.</li>
+                    <li><strong>Education:</strong> Provide students with access to fragile or inaccessible objects for close examination, from ancient pottery to biological specimens.</li>
+                    <li><strong>Research & Documentation:</strong> Create highly accurate digital archives of artifacts, fossils, or environments for measurement, analysis, and preservation.</li>
+                </ul>
+            </section>
+
+            <section id="implementation">
+                <h2>How to Implement Your 3D Models</h2>
+                <p>Once you have a 3D model, how do you share it or use it in a project?</p>
+                <ul>
+                    <li><strong>In a Game Engine (Unity/Unreal):</strong> Import your model into a game engine to build interactive experiences, simulations, or educational games. Gaussian Splatting viewers are now available for both major engines.</li>
+                    <li><strong>On a Webpage:</strong> Use web-based 3D viewers like <a href="https://sketchfab.com/" target="_blank">Sketchfab</a> or custom libraries (like Three.js) to embed and display your model directly on a website, making it accessible to anyone with a browser.</li>
+                    <li><strong>In an Animation:</strong> Import your model into 3D animation software like Blender to create detailed videos, instructional fly-throughs, or scientific visualizations.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 Level Up: EduGaming. A resource for innovative educators.</p>
+            <p class="text-gray-400 text-sm mt-2">Dedicated to advancing the role of interactive learning in higher education.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Logic ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
