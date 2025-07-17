@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reality Capture Guide - Level Up: EduGaming</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,6 +25,11 @@
             font-weight: 600;
             margin-top: 2rem;
             margin-bottom: 1rem;
+        }
+        main h4 {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
         main p {
             line-height: 1.75;
@@ -58,20 +61,16 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header & Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Site Title -->
             <div class="text-2xl font-bold text-blue-600">
                 <a href="#">Level Up: EduGaming</a>
             </div>
-            <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="menu-toggle" class="text-gray-800 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
-            <!-- Navigation Links -->
             <div id="menu" class="hidden md:flex items-center space-x-6">
                 <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
                 <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Game Showcase</a>
@@ -81,7 +80,6 @@
                 <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Initiatives</a>
             </div>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
              <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
             <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Game Showcase</a>
@@ -92,16 +90,13 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-6 py-12 max-w-4xl">
-        <!-- Page Title -->
         <div class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900">A Faculty Guide to Reality Capture</h1>
             <p class="text-lg text-gray-600 mt-2">From Physical to Digital: Bringing Real-World Objects and Environments into Your Teaching</p>
         </div>
 
         <article>
-            <!-- What is Reality Capture? -->
             <section id="what-is">
                 <h2>What is Reality Capture?</h2>
                 <p>Reality capture is the process of creating a 3D digital model of a real-world object, space, or environment. Using various techniques like photography and laser scanning, we can translate physical items into detailed digital assets. These assets can then be explored, manipulated, and integrated into virtual experiences, offering unprecedented opportunities for teaching, research, and documentation.</p>
@@ -112,21 +107,50 @@
                 <p>For educators, this means you can bring a fragile historical artifact into a virtual classroom for students to examine from all angles, allow architecture students to walk through a digital twin of a famous building, or let medical students explore a 3D model of an organ. The possibilities are vast and transformative.</p>
             </section>
 
-            <!-- Intro to Gaussian Splatting -->
             <section id="gaussian-splatting">
                 <h2>Intro to Gaussian Splatting</h2>
                 <p>Gaussian Splatting is a cutting-edge technique for rendering 3D scenes. Unlike traditional methods that use polygons and meshes, Gaussian Splatting represents a scene as a collection of "splats" (3D Gaussians). Each splat has properties like position, color, transparency, and orientation.</p>
                 <p>This approach allows for incredibly fast, high-fidelity rendering of complex scenes in real-time. It excels at capturing fine details, reflections, and transparency, making it ideal for creating photorealistic digital environments that can be explored smoothly on a wide range of devices.</p>
             </section>
 
-            <!-- Intro to Photogrammetry -->
+            <section id="splat-showcase">
+                <h2>Interactive 3D Gaussian Splats Showcase</h2>
+                <p>Explore our collection of 3D scenes captured using Gaussian Splatting. You can interact with each model by clicking and dragging to rotate the view. These examples demonstrate the quality and interactivity achievable with this technology.</p>
+
+                <h3>Spaces &amp; Objects</h3>
+                <div class="grid md:grid-cols-3 gap-6 my-8 text-center">
+                    <div>
+                        <h4>Climbing Gym</h4>
+                        <iframe src="https://lumalabs.ai/embed/03b9e6fb-b91d-4ec7-857c-f4ce821e4adf?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" width="100%" height="400" frameborder="0" title="luma embed" style="border: none; border-radius: 0.5rem;" class="shadow-md rounded-lg"></iframe>
+                    </div>
+                    <div>
+                        <h4>Newark Penn Station</h4>
+                        <iframe src="https://lumalabs.ai/embed/00349dea-574e-47b0-ad72-9f44670b7c2d?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" width="100%" height="400" frameborder="0" title="luma embed" style="border: none; border-radius: 0.5rem;" class="shadow-md rounded-lg"></iframe>
+                    </div>
+                    <div>
+                        <h4>Tree</h4>
+                        <iframe src="https://lumalabs.ai/embed/34681dfb-3dc3-49a5-9a69-65af765ed535?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" width="100%" height="400" frameborder="0" title="luma embed" style="border: none; border-radius: 0.5rem;" class="shadow-md rounded-lg"></iframe>
+                    </div>
+                </div>
+
+                <h3>Landscapes</h3>
+                <h4 class="text-center">Climbing Mountain</h4>
+                <iframe src="https://lumalabs.ai/embed/85bbda7f-35dd-47c0-a8ed-5b1aa157bf14?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" width="100%" height="500" frameborder="0" title="luma embed" style="border: none; border-radius: 0.5rem;" class="shadow-md rounded-lg mx-auto block"></iframe>
+
+                <h3>Custom Animation Paths</h3>
+                <p>Beyond interactive viewing, we can render videos with custom camera paths to showcase specific features of a model. This embedded video demonstrates a custom flight path around the climbing wall capture, perfect for presentations or instructional videos.</p>
+                <video width="100%" controls class="rounded-lg shadow-md my-4">
+                    <source src="https://rutgersgrid.github.io/IntroEduGameDesign/realitycapture/assets/Tower_Wall_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
             <section id="photogrammetry">
                 <h2>Intro to Photogrammetry</h2>
                 <p>Photogrammetry is the science and art of making measurements from photographs. In the context of reality capture, it involves taking numerous overlapping photos of an object or scene from different angles. Specialized software then analyzes these photos to calculate the position of points in 3D space, creating a point cloud that is then converted into a 3D mesh with textures.</p>
                 <p>It's a highly accessible method, often requiring just a smartphone camera to get started, yet it can produce incredibly detailed and accurate models. It is the foundation for many reality capture workflows.</p>
             </section>
 
-            <!-- Capture Methods -->
             <section id="capture-methods">
                 <h2>Capture Methods & Best Practices</h2>
                 <p>The quality of your digital model is directly dependent on the quality of your source images or video. Here are some best practices:</p>
@@ -140,9 +164,15 @@
                  <div class="pro-tip">
                     <p><strong>Pro Tip:</strong> For small objects, consider using a turntable (even a simple lazy Susan). Keep the camera stationary on a tripod and rotate the object. This ensures consistent lighting and distance.</p>
                 </div>
+                
+                <h3>Video Example of the Capture Process</h3>
+                <p>This video shows the process of walking around an object (in this case, a campus landmark) to capture video footage suitable for processing. Notice the steady movement and consistent distance from the subject.</p>
+                <video width="100%" controls class="rounded-lg shadow-md my-4">
+                    <source src="https://rutgersgrid.github.io/IntroEduGameDesign/realitycapture/assets/catpure.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </section>
 
-            <!-- Processing Methods -->
             <section id="processing">
                 <h2>Processing Methods</h2>
                 <p>Once you've captured your images, you need software to process them into a 3D model. Here are a few popular and accessible options:</p>
@@ -153,13 +183,11 @@
                 </ul>
             </section>
             
-            <!-- Editing Methods -->
             <section id="editing">
                 <h2>Editing Methods</h2>
                 <p>Your initial 3D model may not be perfect. You might need to clean up stray geometry, crop the scene, or adjust the textures. While many processing apps have basic editing tools, more advanced work can be done in dedicated 3D software like <a href="https://www.blender.org/" target="_blank">Blender</a> (which is free and open-source) or commercial tools like ZBrush.</p>
             </section>
 
-            <!-- Use Cases -->
             <section id="use-cases">
                 <h2>Use Cases in Education & Research</h2>
                 <p>Reality capture is not just for video games and visual effects. It has profound applications in academia:</p>
@@ -172,7 +200,6 @@
                 </ul>
             </section>
 
-            <!-- How to Implement -->
             <section id="implementation">
                 <h2>How to Implement Your 3D Models</h2>
                 <p>Once you have a 3D model, how do you share it or use it in a project?</p>
@@ -185,7 +212,6 @@
         </article>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white mt-16">
         <div class="container mx-auto px-6 py-8 text-center">
             <p>&copy; 2024 Level Up: EduGaming. A resource for innovative educators.</p>
@@ -193,7 +219,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu -->
     <script>
         // --- Mobile Menu Logic ---
         const menuToggle = document.getElementById('menu-toggle');
